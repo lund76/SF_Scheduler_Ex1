@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AssemblyVersion>0.1.0.0</AssemblyVersion>
+    <FileVersion>0.1.0.0</FileVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="RestSharp" Version="106.13.0" />
+    <PackageReference Include="Syncfusion.Blazor.Schedule" Version="19.3.0.56" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Data\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ASD.VisualPlanner.Core\ASD.VisualPlanner.Core.csproj">
+      <IncludeAssets>true</IncludeAssets>
+    </ProjectReference>
+    <ProjectReference Include="..\ASD.VisualPlanner.CustomDataAdapter\ASD.VisualPlanner.CustomDataAdapter.csproj">
+      <IncludeAssets>true</IncludeAssets>
+    </ProjectReference>
+    <ProjectReference Include="..\ASD.VisualPlanner.FlexConnectorService\ASD.VisualPlanner.FlexConnectorService.csproj" />
+  </ItemGroup>
+</Project>

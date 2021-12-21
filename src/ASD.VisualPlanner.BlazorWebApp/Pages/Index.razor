@@ -1,0 +1,65 @@
+﻿@page "/"
+@inject ISettingsService _settingsService;
+@inject IAppointmentService _appointmentService;
+
+@using Syncfusion.Blazor.Data
+@using ASD.VisualPlanner.CustomDataAdapter
+
+@using Syncfusion.Blazor
+@using ASD.VisualPlanner.Core.Models
+@using ASD.VisualPlanner.Core.Services
+@using System.Reflection
+
+<div>@_assemblyInfo</div>
+
+<PageTitle>Amesto Visual Planner</PageTitle>
+<SfSchedule TValue="AppointmentData" Width="100%" Height="100%" SelectedDate="@(DateTime.Today)">
+    <ScheduleGroup EnableCompactView="false" ByGroupID="false" Resources="@Resources" AllowGroupEdit="true"  ></ScheduleGroup>
+    <ScheduleEvents TValue="AppointmentData" Created="OnCreated"></ScheduleEvents>
+    <ScheduleResources >
+        <ScheduleResource TItem="ResourceData" TValue="int[]" AllowMultiple="true" DataSource="@_resourceData" 
+                          Field="ResourceId" Title="@_settings.ResourceTitle" Name="Owners" TextField="Text" IdField="Id">
+        </ScheduleResource>
+    </ScheduleResources>
+    <ScheduleViews >
+        <ScheduleView Option="View.TimelineMonth"></ScheduleView>
+        <ScheduleView Option="View.TimelineYear"></ScheduleView>
+        <ScheduleView Option="View.TimelineWorkWeek" MaxEventsPerRow="2" ShowWeekend="false"  StartHour="07:00" EndHour="17:00"></ScheduleView>
+    </ScheduleViews>
+    <ScheduleEventSettings TValue="AppointmentData" >
+        <SfDataManager AdaptorInstance="@typeof(PlannerDataAdapter)" Adaptor="Adaptors.CustomAdaptor"/>
+    </ScheduleEventSettings>
+</SfSchedule>
+
+
+<style>
+    .e-schedule .e-timeline-view .e-all-day-appointment-wrapper .e-appointment.type1,
+    .e-schedule .e-timeline-view .e-appointment.type1,
+    .e-schedule .e-timeline-month-view .e-appointment.type1 {
+        background: #233E4C;
+    }
+
+    .e-schedule .e-timeline-view .e-all-day-appointment-wrapper .e-appointment.type2,
+    .e-schedule .e-timeline-view .e-appointment.type2,
+    .e-schedule .e-timeline-month-view .e-appointment.type2 {
+        background: #A88157;
+    }
+
+    .e-schedule .e-timeline-view .e-all-day-appointment-wrapper .e-appointment.type3,
+    .e-schedule .e-timeline-view .e-appointment.type3,
+    .e-schedule .e-timeline-month-view .e-appointment.type3 {
+        background: #60454A;
+    }
+
+    .e-schedule .e-timeline-view .e-all-day-appointment-wrapper .e-appointment.type4,
+    .e-schedule .e-timeline-view .e-appointment.type4,
+    .e-schedule .e-timeline-month-view .e-appointment.type4 {
+        background: #696243;
+    }
+
+    .e-schedule .e-timeline-view .e-all-day-appointment-wrapper .e-appointment.type5,
+    .e-schedule .e-timeline-view .e-appointment.type5,
+    .e-schedule .e-timeline-month-view .e-appointment.type5 {
+        background: #000000;
+    }
+</style>
