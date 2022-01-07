@@ -9,7 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Amesto.FlexConnector.Client" Version="0.0.3.6" />
+    <!-- <PackageReference Include="Amesto.FlexConnector.Client" Version="0.0.3.6" /> -->
     <PackageReference Include="RestSharp" Version="106.13.0">
       <IncludeAssets></IncludeAssets>
     </PackageReference>
