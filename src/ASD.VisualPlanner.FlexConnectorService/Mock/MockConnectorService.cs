@@ -28,7 +28,7 @@ namespace ASD.VisualPlanner.FlexConnectorService.Mock
             
             AppointmentPool = new List<AppointmentData>();
             AppointmentPool = GetActiveAppointments().ToList();
-            //AppointmentPool.AddRange(GetBlockedAppointments());
+            AppointmentPool.AddRange(GetBlockedAppointments());
             AppointmentPool.AddRange(GetCorporateHolidays());
             
         }

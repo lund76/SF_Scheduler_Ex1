@@ -10,7 +10,7 @@
 
   <ItemGroup>
     <PackageReference Include="RestSharp" Version="106.13.0" />
-    <PackageReference Include="Syncfusion.Blazor.Schedule" Version="19.3.0.56" />
+    <PackageReference Include="Syncfusion.Blazor.Schedule" Version="19.4.0.47" />
   </ItemGroup>
 
   <ItemGroup>
